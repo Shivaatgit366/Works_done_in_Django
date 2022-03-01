@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}  <!--this is the new syntax in django for loading the static files-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "first_app/css/styles.css" %}">
+    <title>France Eiffel Tower</title>
+  </head>
+  <body>
+    <h1>hello, this is the MVT structure of Django!!</h1>
+    <h2>Here are your access records</h2>
+
+    <div class="djangomvt">
+      {% if access_records %}
+        <table>
+          <thead>
+            <th>Site Names</th>
+            <th>Date Accessed</th>
+          </thead>
+
+          {% for access_object in access_records %}
+            <tr>
+              <td>{{ access_object.name }}</td>
+              <td>{{ access_object.date }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>NO ACCESS RECORDS FOUND!!</p>
+      {% endif %}
+
+    </div>
+
+    <br>
+    <img src="{% static "first_app/images/france eiffel tower.jpg" %}" alt="oh ohh!! didn't show image!!">
+
+  </body>
+</html>
