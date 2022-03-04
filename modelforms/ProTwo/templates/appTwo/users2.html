@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "styles/styles.css" %}">
+    <title>HELP PAGE</title>
+  </head>
+
+  <body>
+    <h1>Hello this is a test project!!</h1>
+    <h2>Customers in our database...!!!</h2>
+
+    <div class="userclass">
+      {% if user_table %}
+
+          <ol>
+            {% for record_object in user_table %}
+              <li>User Info</li>
+                <ul>
+                  <li>First Name: {{ record_object.first_name }}</li>
+                  <li>Last Name: {{ record_object.last_name }}</li>
+                  <li>Email: {{ record_object.email }}</li>
+                </ul>
+            {% endfor %}
+          </ol>
+
+      {% else %}
+        <h2>No data found in our database...!!!</h2>
+      {% endif %}
+    </div>
+
+  </body>
+</html>
