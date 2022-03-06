@@ -1,0 +1,19 @@
+<!-- only keep this below comment, it is enough for inheritance -->
+<!DOCTYPE html>
+
+
+<!-- using "extends" keyword, inherit all the required content with static template tag -->
+{% extends "basic_app/base.html" %}
+
+
+<!-- using body block we can write the content required for this page -->
+<!-- content inside the body block will not be inherited -->
+
+    
+    {% block body_block %}
+    <!-- load the custom template filters file here -->
+    {% load custom_template_filters %}
+        <h1>WELCOME TO INDEX</h1>
+        <h2>{{ text|to_remove:"l" }}</h2>
+        <h2>{{ number|divisibleby:"3" }}</h2>
+    {% endblock %}

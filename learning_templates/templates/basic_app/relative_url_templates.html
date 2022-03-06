@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>WELCOME TO URL TEMPLATES</h1>
+  <a href="{% url 'basic_app:other' %}">OTHER PAGE</a>
+  <br>
+  <a href="{% url 'basic_app:manager' %}">MANAGER</a>
+  <br>
+  
+  <a href="{% url 'admin:index' %}">ADMIN APP INDEX ENDPOINT</a>
+  <!-- admin is the in built app present in django. So inside the admin app, we go to index endpoint. -->
+
+  <br>
+  <!-- we can even connect the url outside the app. Below we are connecting a url present in the local directory. -->
+  <a href="{% url 'index' %}">LOCAL INDEX</a>
+</body>
+</html>

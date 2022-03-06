@@ -1,0 +1,14 @@
+<!-- only keep this comment -->
+<!DOCTYPE html>
+
+<!-- we should extend the html file using static template tag with "extends" keyword -->
+{% extends "basic_app/base.html" %}
+
+<!-- put the body block tag then write the content required for this particular page -->
+<!-- content inside the body block will not be inherited -->
+
+    {% block body_block %}
+        <h1>WELCOME TO OTHER!!</h1>
+        <h2>THIS IS THE EXAMPLE OF TEMPLATE INHERITANCE</h2>
+        <h4>CONTENT INSIDE THE BODY BLOCK WILL NOT BE INHERITED, IT WILL BE FIXED ONLY FOR THIS PAGE</h4>
+    {% endblock %}
