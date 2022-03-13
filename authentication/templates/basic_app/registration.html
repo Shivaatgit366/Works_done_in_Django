@@ -1,0 +1,30 @@
+{% extends "basic_app/base.html" %}
+
+<!DOCTYPE html>
+
+{% load static %}
+
+
+{% block body_block %}
+    <div class="jumbotron">
+        {% if registered %}
+            <h1>Thanks for registering in our website, Kindly login to our website</h1>
+        {% else %}
+            <h1>Hello, Please register in our website !!!</h1>
+            <br>
+
+            <!-- to upload images, we should use multipart/form-data as enctype in our form -->
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                <!-- we should write the django forms here, whatever we have created, don't write the HTML form -->
+                <!-- .as_p  makes the form look better in the line by line view -->
+                {{ user_object.as_p }}
+                {{ profile_object.as_p }}
+                <input type="submit" value="Register">
+                
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
+

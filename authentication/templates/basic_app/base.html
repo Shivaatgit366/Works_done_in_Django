@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Base File</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="{% url 'index' %}">DJANGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'basic_app:register' %}">Register</a>
+            </li>
+
+
+            <!-- we need some logic to display whether "login" or "logout" -->
+            {% if existing_user.is_authenticated %}
+            <li class="nav-item">
+              <!-- "logout" is the name of the view, it doesn't belong to any app. Name of the view is enough -->
+              <a class="nav-link" href="{% url 'my_logout' %}">Logout</a>
+            </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'basic_app:my_login' %}">Login</a>
+              </li>
+            {% endif %}
+
+          </ul>
+        </div>
+
+    </nav>
+
+
+      <div class="container">
+        {% block body_block %}
+        {% endblock %}
+      </div>
+
+</body>
+</html>

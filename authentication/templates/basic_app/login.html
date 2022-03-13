@@ -1,0 +1,23 @@
+{% extends "basic_app/base.html" %}
+
+<!DOCTYPE html>
+
+{% block body_block %}
+    <div class="jumbotron">
+        <h1>Hello, Please Login !!!</h1>
+        <form action="{% url 'basic_app:my_login' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              
+              <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Enter username">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your credentials with anyone else.</small>
+            
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+{% endblock %}
