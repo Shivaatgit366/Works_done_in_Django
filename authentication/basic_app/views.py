@@ -126,4 +126,3 @@ def my_login_view(request):
     else:  # in get request, we just render the "login.html" page.
         return render(request,"basic_app/login.html",context={})  # context dictionary is empty because we are not returning any object/variable as template variables.
 
-

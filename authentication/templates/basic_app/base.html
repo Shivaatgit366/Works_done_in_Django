@@ -26,7 +26,9 @@
 
 
             <!-- we need some logic to display whether "login" or "logout" -->
-            {% if existing_user.is_authenticated %}
+            <!-- remember that the "user" is an object which is in-built and it is provided by django -->
+            <!-- https://stackoverflow.com/questions/31896103/how-does-template-in-django-get-the-user-object -->
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <!-- "logout" is the name of the view, it doesn't belong to any app. Name of the view is enough -->
               <a class="nav-link" href="{% url 'my_logout' %}">Logout</a>
