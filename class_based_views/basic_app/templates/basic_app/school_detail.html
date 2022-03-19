@@ -1,0 +1,21 @@
+{% extends "basic_app/basic_app_base.html" %}
+
+<!DOCTYPE html>
+
+
+{% block body_block %}
+    <div class="jumbotron">
+        
+        <h1>Details of the school are given below</h1>
+        <p>Name of the school: <strong>{{ school_object.name }}</strong></p>
+        <p>Principal name: <strong>{{ school_object.principal }}</strong></p>
+        <p>Location of the school: <strong>{{ school_object.location }}</strong></p>
+
+
+        <h1>List of Students present in the school are given below</h1>
+        {% for student_object in school_object.students.all %}
+            <p>student <strong>{{ student_object.name }}</strong> is <strong>{{ student_object.age }}</strong> years old</p>
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+{% extends "basic_app/basic_app_base.html" %}
+
+{% block body_block %}
+    <div class="jumbotron">
+        <h1>List of all the schools are given here</h1>
+        <h2>Click on the school to get the details</h2>
+
+        <ol class="schoolslist">
+            {% for row_object in list_of_school_objects %}
+            <h2><a href="{{ row_object.id }}"><li>{{ row_object.name }}</li></a></h2>
+            {% endfor %}
+        </ol>
+                
+    </div>
+{% endblock %}
