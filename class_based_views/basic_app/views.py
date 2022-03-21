@@ -1,7 +1,11 @@
+from dataclasses import fields
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View
-from django.views.generic import TemplateView, ListView, DetailView
+from django.urls import reverse_lazy
+
+# put paranthesis for multi-line importing
+from django.views.generic import (View, TemplateView, ListView, DetailView,
+                                   CreateView, DeleteView, UpdateView)
 from typing import Dict, Any
 from basic_app.models import School, Student
 
@@ -92,3 +96,29 @@ class SchoolDetailView(DetailView):  # inheriting from the built-in CBV "DetailV
         cont_dict = super().get_context_data(**kwargs)
         print(cont_dict)
         return cont_dict
+
+
+class SchoolCreateView(CreateView):
+    # this "CreateView" cbv creates a model-form. We should specify the model name and fields to be displayed.
+    # then it creates an object called "form" ----> it is a model-form object.
+    # then it saves the object into the database row automatically.
+    # in the template, keep the name of the file as "model_form.html".
+    model = School
+    fields = ["name", "principal", "location"]
+
+
+class SchoolUpdateView(UpdateView):
+    # "UpdateView" cbv updates the object present in the database. It takes the model name, fields for updating.
+    # an object of "model_form" will be formed. After getting the data from the user, it saves it in the database.
+    model = School
+    fields = ["name", "principal"]
+    template_name_suffix = "_update_form"
+
+
+class SchoolDeleteView(DeleteView):
+    # "DeleteView" cbv deletes the row object present in the database. It takes the model name.
+    model = School  # a local object called "school" will be automatically created by django when we mention model name.
+    success_url = reverse_lazy("basic_app:schoolslist")
+
+    # Remember:- An object called "school" will be created by django when we give the name of the model.
+    # So, we can directly use {{ school.name }} in our relevant template file.

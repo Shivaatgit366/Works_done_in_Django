@@ -17,5 +17,11 @@
             <p>student <strong>{{ student_object.name }}</strong> is <strong>{{ student_object.age }}</strong> years old</p>
         {% endfor %}
 
+
+        <a href="{% url 'basic_app:updateschool' pk=school_object.pk %}" class="btn btn-primary btn-lg active" role="button" aria-disabled="true">Update</a>
+
+        <a href="{% url 'basic_app:deleteschool' pk=school_object.pk %}" class="btn btn-danger btn-lg active" role="button" aria-disabled="true">Delete</a>
+
+
     </div>
 {% endblock %}

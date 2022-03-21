@@ -12,6 +12,8 @@
             <h2><a href="{{ row_object.id }}"><li>{{ row_object.name }}</li></a></h2>
             {% endfor %}
         </ol>
+
+        <a href="{% url 'basic_app:createschool' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create School</a>
                 
     </div>
 {% endblock %}
