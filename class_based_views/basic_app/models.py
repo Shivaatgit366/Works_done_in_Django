@@ -21,10 +21,12 @@ class Student(models.Model):
     name = models.CharField(max_length=256)  # name of the student
     age = models.PositiveIntegerField()  # age should be a positive integer, there is a field called "PositiveIntegerField"
     
-    # in the field "school", we will have school object from the Foreign Table.
+    # Here we will mention "school" column as foreign key. Then, django automatically puts the column "school_id" in the "Student" table. 
+    # It matches and puts the id when we enter the school name.
+    # "related_name" is called the reverse mapping. Known as "Backward relationship".
+    # Django will create the column "students_id" and maps with the school ID in the School table(above table).
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='students')
 
     def __str__(self):
         # in the table, name of the student will be shown
         return self.name
-
