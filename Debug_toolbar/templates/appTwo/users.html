@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "styles/styles.css" %}">
+    <title>HELP PAGE</title>
+  </head>
+  <body>
+    <h1>Hello this is a test project!!</h1>
+    <h2>Customers in our database...!!!</h2>
+
+    <div class="userclass">
+      {% if user_table %}
+        <table id="usertable">
+          <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+          </thead>
+
+
+          {% for record_object in user_table %}
+            <tr>
+              <td>{{ record_object.first_name }}</td>
+              <td>{{ record_object.last_name }}</td>
+              <td>{{ record_object.email }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+
+      {% else %}
+          <h2>NO ACCESS RECORDS FOUND!!</h2>
+      {% endif %}
+
+    </div>
+
+  </body>
+</html>
