@@ -21,7 +21,7 @@ class MovieAdmin(admin.ModelAdmin):  # Inherit the class from "model-admin" clas
     list_display = ["title", "length", "release_year"]
 
     # create "list_editable" attribute to add the fields which are editable in-place. Be careful since everybody can edit and change the values in the table.
-    # item present in the "list_display[0]" can not be mentioned in the "list_editable" list.
+    # Remember:- Field present in the "list_display[0]" can not be mentioned in the "list_editable" list. That means "title" is not editable in this example.
     list_editable = ["release_year", "length"]
 
 
